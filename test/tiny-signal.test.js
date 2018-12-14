@@ -14,7 +14,7 @@ describe('tiny-signal:', () => {
   let foo = () => 'foo'
   let bar = () => 'bar'
   let baz = () => 'baz'
-  
+
   describe('add()', () => {
     it('should be a function', () => {
       expect(typeof instance.add).toBe('function')
@@ -30,7 +30,7 @@ describe('tiny-signal:', () => {
       expect(instance._listeners.length).toBe(1)
     })
   })
-  
+
   describe('remove()', () => {
     it('should be a function', () => {
       expect(typeof instance.remove).toBe('function')
@@ -41,7 +41,7 @@ describe('tiny-signal:', () => {
       expect(instance._listeners.length).toBe(0)
     })
   })
-  
+
   describe('dispatch()', () => {
     it('should be a function', () => {
       expect(typeof instance.dispatch).toBe('function')
@@ -58,7 +58,7 @@ describe('tiny-signal:', () => {
       instance.dispatch(data)
     })
   })
-  
+
   describe('destroy()', () => {
     it('should be a function', () => {
       expect(typeof instance.destroy).toBe('function')
@@ -66,11 +66,11 @@ describe('tiny-signal:', () => {
 
     it('should remove all listeners', () => {
       expect(instance._listeners.length).toBe(1)
-      
+
       instance.add(foo)
       instance.add(bar)
       instance.add(baz)
-      
+
       expect(instance._listeners.length).toBe(4)
 
       instance.destroy()
@@ -79,4 +79,3 @@ describe('tiny-signal:', () => {
     })
   })
 })
-
