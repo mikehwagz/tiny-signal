@@ -1,0 +1,28 @@
+{
+  "name": "tiny-signal",
+  "version": "0.0.1",
+  "description": "Minimal ~200b implementation of the observer design pattern.",
+  "main": "dist/tiny-signal.js",
+  "umd:main": "dist/tiny-signal.umd.js",
+  "module": "dist/tiny-signal.mjs",
+  "source": "src/tiny-signal.js",
+  "scripts": {
+    "build": "microbundle build",
+    "watch": "microbundle watch",
+    "test": "jest"
+  },
+  "keywords": [
+    "signal",
+    "signals",
+    "event",
+    "events",
+    "observer",
+    "emitter"
+  ],
+  "author": "Mike Wagz <mike@wagz.io> (http://wagz.io)",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "microbundle": "^0.8.3"
+  }
+}
