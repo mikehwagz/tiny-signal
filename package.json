@@ -12,6 +12,7 @@
     "watch": "microbundle watch",
     "test": "jest"
   },
+  "repository": "mikehwagz/tiny-signal",
   "keywords": [
     "signal",
     "signals",
@@ -20,6 +21,7 @@
     "observer",
     "emitter"
   ],
+  "homepage": "https://github.com/mikehwagz/tiny-signal",
   "author": "Mike Wagz <mike@wagz.io> (http://wagz.io)",
   "license": "MIT",
   "devDependencies": {
