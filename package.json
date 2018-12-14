@@ -1,6 +1,6 @@
 {
   "name": "tiny-signal",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Minimal 228 byte implementation of the observer design pattern.",
   "main": "dist/tiny-signal.js",
   "umd:main": "dist/tiny-signal.umd.js",
