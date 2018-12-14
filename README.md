@@ -30,8 +30,8 @@ instance.dispatch('hello world!')
 
 instance.remove(bar)
 instance.dispatch('howdy!')
-// foo! hello world!
-// baz! hello world!
+// foo! howdy!
+// baz! howdy!
 
 instance.destroy() // removes all listeners
 ```
