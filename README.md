@@ -1,6 +1,6 @@
 # tiny-signal
 
-tiny-signal is a minimal implementation of the observer design pattern in less than 300 bytes gzipped.
+tiny-signal is a minimal implementation of the observer design pattern in only 228 bytes gzipped.
 
 ## Installation
 
