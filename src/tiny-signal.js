@@ -13,7 +13,7 @@ export default () => {
     },
 
     dispatch(data) {
-      for (var i, len = listeners.length; i < len; i++) listeners[i](data)
+      for (let i = 0; i < listeners.length; i++) listeners[i](data)
     },
 
     destroy() {
