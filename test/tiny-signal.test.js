@@ -22,12 +22,12 @@ describe('tiny-signal:', () => {
 
     it('should add a listener', () => {
       instance.add(foo)
-      expect(instance._listeners.length).toBe(1)
+      expect(instance._listeners.size).toBe(1)
     })
 
     it('should not add a duplicate listener', () => {
       instance.add(foo)
-      expect(instance._listeners.length).toBe(1)
+      expect(instance._listeners.size).toBe(1)
     })
   })
 
@@ -38,7 +38,7 @@ describe('tiny-signal:', () => {
 
     it('should remove a listener', () => {
       instance.remove(foo)
-      expect(instance._listeners.length).toBe(0)
+      expect(instance._listeners.size).toBe(0)
     })
   })
 
@@ -65,17 +65,17 @@ describe('tiny-signal:', () => {
     })
 
     it('should remove all listeners', () => {
-      expect(instance._listeners.length).toBe(1)
+      expect(instance._listeners.size).toBe(1)
 
       instance.add(foo)
       instance.add(bar)
       instance.add(baz)
 
-      expect(instance._listeners.length).toBe(4)
+      expect(instance._listeners.size).toBe(4)
 
       instance.destroy()
 
-      expect(instance._listeners.length).toBe(0)
+      expect(instance._listeners.size).toBe(0)
     })
   })
 })

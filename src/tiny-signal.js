@@ -1,23 +1,24 @@
-export default () => {
-  let listeners = []
+module.exports = function() {
+  let listeners = new Set();
 
   return {
     _listeners: listeners,
     add(fn) {
-      listeners.indexOf(fn) < 0 && listeners.push(fn)
+      !listeners.has(fn) && listeners.add(fn);
     },
 
     remove(fn) {
-      let i = listeners.indexOf(fn)
-      i > -1 && listeners.splice(i, 1)
+      listeners.has(fn) && listeners.delete(fn);
     },
 
     dispatch(data) {
-      for (let i = 0; i < listeners.length; i++) listeners[i](data)
+      listeners.forEach(function(l) {
+        return l(data);
+      });
     },
 
     destroy() {
-      this._listeners = []
+      listeners.clear();
     },
-  }
-}
+  };
+};
