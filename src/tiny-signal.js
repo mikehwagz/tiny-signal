@@ -1,4 +1,4 @@
-module.exports = function() {
+export default function() {
   let listeners = new Set()
 
   return {
