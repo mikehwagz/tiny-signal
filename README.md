@@ -1,23 +1,23 @@
 # tiny-signal
 
-tiny-signal is a minimal implementation of the observer design pattern in approximately 200 bytes gzipped.
+tiny-signal is a minimal implementation of the observer design pattern in less than 300 bytes gzipped.
 
-### Installation
+## Installation
 
 ```
 npm i tiny-signal
 ```
 
-### Usage
+## Usage
 
 ```js
 import signal from 'tiny-signal'
 
 const instance = signal()
 
-const foo = (data) => console.log(`foo! ${data}`)
-const bar = (data) => console.log(`bar! ${data}`)
-const baz = (data) => console.log(`baz! ${data}`)
+const foo = data => console.log(`foo! ${data}`)
+const bar = data => console.log(`bar! ${data}`)
+const baz = data => console.log(`baz! ${data}`)
 
 instance.add(foo)
 instance.add(bar)
@@ -35,3 +35,7 @@ instance.dispatch('howdy!')
 
 instance.destroy() // removes all listeners
 ```
+
+## License
+
+[MIT License](https://opensource.org/licenses/MIT) © [Mike Wagz](https://wagz.io)
