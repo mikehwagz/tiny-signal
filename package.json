@@ -22,7 +22,7 @@
     "emitter"
   ],
   "homepage": "https://github.com/mikehwagz/tiny-signal",
-  "author": "Mike Wagz <mike@wagz.io> (http://wagz.io)",
+  "author": "Mike Wagz <mike@selfaware.studio> (https://selfaware.studio)",
   "license": "MIT",
   "devDependencies": {
     "jest": "^23.6.0",
