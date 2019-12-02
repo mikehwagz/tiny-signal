@@ -11,9 +11,9 @@ describe('tiny-signal:', () => {
     expect(typeof instance).toBe('object')
   })
 
-  let foo = () => 'foo'
-  let bar = () => 'bar'
-  let baz = () => 'baz'
+  let foo = jest.fn().mockName('foo')
+  let bar = jest.fn().mockName('bar')
+  let baz = jest.fn().mockName('baz')
 
   describe('add()', () => {
     it('should be a function', () => {
@@ -22,12 +22,14 @@ describe('tiny-signal:', () => {
 
     it('should add a listener', () => {
       instance.add(foo)
-      expect(instance._listeners.size).toBe(1)
+      instance.dispatch()
+      expect(foo).toHaveBeenCalledTimes(1)
     })
-
-    it('should not add a duplicate listener', () => {
+    
+    it('should not add duplicate listener', () => {
       instance.add(foo)
-      expect(instance._listeners.size).toBe(1)
+      instance.dispatch()
+      expect(foo).toHaveBeenCalledTimes(2)
     })
   })
 
@@ -38,7 +40,8 @@ describe('tiny-signal:', () => {
 
     it('should remove a listener', () => {
       instance.remove(foo)
-      expect(instance._listeners.size).toBe(0)
+      instance.dispatch()
+      expect(foo).toHaveBeenCalledTimes(2)
     })
   })
 
@@ -47,15 +50,11 @@ describe('tiny-signal:', () => {
       expect(typeof instance.dispatch).toBe('function')
     })
 
-    it('should invoke added listener', () => {
+    it('should invoke added listener with provided arguments', () => {
       let data = { a: 'b' }
-
-      instance.add((one, two) => {
-        expect(one).toBe(data)
-        expect(two).toBe(undefined)
-      })
-
+      instance.add(bar)
       instance.dispatch(data)
+      expect(bar).toHaveBeenLastCalledWith(data)
     })
   })
 
@@ -65,17 +64,24 @@ describe('tiny-signal:', () => {
     })
 
     it('should remove all listeners', () => {
-      expect(instance._listeners.size).toBe(1)
+      expect(foo).toHaveBeenCalledTimes(2)
+      expect(bar).toHaveBeenCalledTimes(1)
+      expect(baz).toHaveBeenCalledTimes(0)
 
       instance.add(foo)
-      instance.add(bar)
       instance.add(baz)
+      instance.dispatch()
 
-      expect(instance._listeners.size).toBe(4)
+      expect(foo).toHaveBeenCalledTimes(3)
+      expect(bar).toHaveBeenCalledTimes(2)
+      expect(baz).toHaveBeenCalledTimes(1)
 
       instance.destroy()
+      instance.dispatch()
 
-      expect(instance._listeners.size).toBe(0)
+      expect(foo).toHaveBeenCalledTimes(3)
+      expect(bar).toHaveBeenCalledTimes(2)
+      expect(baz).toHaveBeenCalledTimes(1)
     })
   })
 })

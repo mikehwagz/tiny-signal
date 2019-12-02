@@ -1,24 +1,23 @@
 export default function() {
-  let listeners = new Set()
+  let fns = new Set()
 
   return {
-    _listeners: listeners,
     add(fn) {
-      listeners.add(fn)
+      fns.add(fn)
     },
 
     remove(fn) {
-      listeners.delete(fn)
+      fns.delete(fn)
     },
 
     dispatch(data) {
-      listeners.forEach(function(l) {
-        return l(data)
+      fns.forEach(fn => {
+        fn(data)
       })
     },
 
     destroy() {
-      listeners.clear()
+      fns.clear()
     },
   }
 }
