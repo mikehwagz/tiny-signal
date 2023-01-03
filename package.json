@@ -25,7 +25,7 @@
   "author": "Mike Wagz <mike@selfaware.studio> (https://selfaware.studio)",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^23.6.0",
+    "jest": "^29.3.1",
     "microbundle": "^0.8.3"
   }
 }
